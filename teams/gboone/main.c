@@ -17,7 +17,7 @@
 #define  POS_Y   4   /* flanking position vertical   */
 
 /* forward ref */
-UN(goToNE)(int gx, int gy, int x, int y, int x_dist, int y_dist);
+int UN(goToNE)(int gx, int gy, int x, int y, int x_dist, int y_dist);
 
 static int UN(got_it) = -1;           /* who is the captain? */
 static int UN(capt_loc_x) = -1;
@@ -244,7 +244,7 @@ char *UN(team_name)()
 char	*s;
 
 /*  "####################\0" <--- 20 characters */
-s = "Feeble Forcers      \0";
+s = (char*)"Feeble Forcers      \0";
 return(s);
 }
 

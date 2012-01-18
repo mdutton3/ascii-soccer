@@ -57,7 +57,7 @@ linked_list::~linked_list()
 
 -----------------------------------------------*/	
 
-linked_list::add(list_item *item)
+int linked_list::add(list_item *item)
 {
 item->next = head;
 head = item;
@@ -73,7 +73,7 @@ return(0);
 
 -----------------------------------------------*/	
 
-linked_list::remove(KEY_TYPE key)
+int linked_list::remove(KEY_TYPE key)
 {
 list_item	*i, *j;
 
@@ -226,7 +226,7 @@ i = 0;
 
 -----------------------------------------------*/	
 
-hash_table::add(list_item *item)
+int hash_table::add(list_item *item)
 {
 int	i;
 
@@ -244,7 +244,7 @@ return(0);
 
 -----------------------------------------------*/	
 
-hash_table::remove(KEY_TYPE key)
+int hash_table::remove(KEY_TYPE key)
 {
 int i;
 

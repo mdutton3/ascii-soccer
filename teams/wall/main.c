@@ -24,7 +24,7 @@ char *UN(team_name)()
 char	*s;
 
 /*  "####################\0" <--- 20 characters */
-s = "W'all Kick Yer Butt \0";
+s = (char*)"W'all Kick Yer Butt \0";
 return(s);
 }
 

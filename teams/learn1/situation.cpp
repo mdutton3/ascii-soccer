@@ -48,7 +48,7 @@ for(i=0; i<=BIGGEST_ACTION; i++)
 estimated_value[ball_direction] = 1.0/LEARN_HORIZON;
 }
 
-situation::show()
+void situation::show()
 {
 printf("%f\n",key);
 }

@@ -37,8 +37,8 @@ class	linked_list
 		linked_list();
 		~linked_list();
 		void	*find(KEY_TYPE key);
-		add(list_item *item);
-		remove(KEY_TYPE key); 
+		int add(list_item *item);
+		int remove(KEY_TYPE key); 
 		list_item	*get_first();
 		list_item	*get_next();
 	};
@@ -61,8 +61,8 @@ class	hash_table
 		hash_table();
 		~hash_table();
 		void	*find(KEY_TYPE key);
-		add(list_item *item);
-		remove(KEY_TYPE key); 
+		int add(list_item *item);
+		int remove(KEY_TYPE key); 
 		list_item	*get_first();
 		list_item	*get_next();
 	};

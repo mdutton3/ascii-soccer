@@ -1,4 +1,7 @@
 #include "soccer.h"
+#include <stdlib.h>
+#include <string.h>
+
 #ifndef PLAYERS_H
 	#define PLAYERS_H
 

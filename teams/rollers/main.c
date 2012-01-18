@@ -507,7 +507,7 @@ char *UN(team_name)()
 char	*s;
 
 /*  "####################\0" <--- 20 characters */
-s = "Dynamic Rollers  \0";
+s = (char*)"Dynamic Rollers  \0";
 return(s);
 }
 

@@ -40,7 +40,7 @@ char *unique_name(team_name)()
     char	*s;
 
     /*  "####################\0" <--- 20 characters */
-    s = "Socker Spaniels     \0";
+    s = (char*)"Socker Spaniels     \0";
     return(s);
 }
 

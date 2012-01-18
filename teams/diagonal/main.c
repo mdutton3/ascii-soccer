@@ -25,7 +25,7 @@ char *unique_name(team_name)()
 char	*s;
 
 /*  "####################\0" <--- 20 characters */
-s = "Diagonal Demons     \0";
+s = (char*)"Diagonal Demons     \0";
 return(s);
 }
 

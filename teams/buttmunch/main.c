@@ -65,7 +65,7 @@ move (N, NE, E, S, etc) or KICK to kick the ball.
 
 /*
 
-    $results = "<p>\nNo Matches.\n</p>\n" if (!$results);
+    $results = (char*)"<p>\nNo Matches.\n</p>\n" if (!$results);
 
 #    &main'MIME_header('ok', 'text/html');
 
@@ -229,7 +229,7 @@ char *UN(team_name)()
 char	*s;
 
 /*  "####################\0" <--- 20 characters */
-s = "Butt-munchers       \0";
+s = (char*)"Butt-munchers       \0";
 return(s);
 }
 
@@ -380,7 +380,7 @@ double zbrent(double sine, double cosine, double v, double x1, double x2, double
 	return rv;
 }
 
-#define M(T) [MAX_##T##]
+#define M(T) [MAX_##T]
 #define MF(X) fiel##X
 
 MAK_RAN1(MAY_E(int ball));

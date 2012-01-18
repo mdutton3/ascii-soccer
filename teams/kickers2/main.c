@@ -21,7 +21,7 @@ char *UN(team_name)()
 char	*s;
 
 /*  "####################\0" <--- 20 characters */
-s = "Krazy Kickers 2     \0";
+s = (char*)"Krazy Kickers 2     \0";
 return(s);
 }
 

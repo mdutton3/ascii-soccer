@@ -21,5 +21,5 @@ class	situation : public list_item
 		double estimated_value[(BIGGEST_ACTION + 1)];
 		situation(KEY_TYPE new_key, int local_area[9], int ball_direction);
 		int pick_action();
-		show();
+		void show();
 	};

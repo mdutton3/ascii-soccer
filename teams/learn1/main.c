@@ -117,7 +117,7 @@ char *UN(team_name)()
 char	*s;
 
 /*  "####################\0" <--- 20 characters */
-s = "Lazy Learners       \0";
+s = (char*)"Lazy Learners       \0";
 return(s);
 }
 

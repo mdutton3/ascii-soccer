@@ -232,11 +232,11 @@ static int x=1;
 /*  "####################\0" <--- 20 characters */
 if (x) {
   x=0;
-  s = "Donahoo's Deathtraps\0";
+  s = (char*)"Donahoo's Deathtraps\0";
 }
 else {
   x=1;
-  s = "Everyone Die        \0";
+  s = (char*)"Everyone Die        \0";
 }
 
 return(s);

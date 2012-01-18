@@ -25,7 +25,7 @@ char *unique_name(team_name)()
 char	*s;
 
 /*  "####################\0" <--- 20 characters */
-s = "The Random Rangers  \0";
+s = (char*)"The Random Rangers  \0";
 return(s);
 }
 
