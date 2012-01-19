@@ -1,15 +1,15 @@
 
 east.o: main.c ../../soccer.h ../../players.h hash.h situation.h
-	g++ -I../.. -c -DEAST_TEAM main.c -o east.o
+	gcc -I../.. -c -DEAST_TEAM main.c -o east.o
 
 west.o: main.c ../../soccer.h ../../players.h hash.h situation.h
-	g++ -I../.. -c -DWEST_TEAM main.c -o west.o
+	gcc -I../.. -c -DWEST_TEAM main.c -o west.o
 
 hash.o: hash.cpp ../../soccer.h ../../players.h hash.h
-	g++ -I../.. -c hash.cpp -o hash.o
+	gcc -I../.. -c hash.cpp -o hash.o
 
 situation.o: situation.cpp ../../soccer.h ../../players.h situation.h hash.h
-	g++ -I../.. -c situation.cpp -o situation.o
+	gcc -I../.. -c situation.cpp -o situation.o
 
 libeast.a: east.o hash.o situation.o
 	ar rc libeast.a east.o 

@@ -1,11 +1,11 @@
 east.o: main.c ../../soccer.h ../../players.h 
-	g++ -I../.. -c -DEAST_TEAM main.c -o east.o
+	gcc -I../.. -c -DEAST_TEAM main.c -o east.o
 
 west.o: main.c ../../soccer.h ../../players.h 
-	g++ -I../.. -c -DWEST_TEAM main.c -o west.o
+	gcc -I../.. -c -DWEST_TEAM main.c -o west.o
 
 common.o: common.c ../../soccer.h ../../players.h 
-	g++ -I../.. -c -DWEST_TEAM common.c -o common.o
+	gcc -I../.. -c -DWEST_TEAM common.c -o common.o
 
 libwest.a: west.o
 	ar rc libwest.a west.o
