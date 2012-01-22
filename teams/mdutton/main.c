@@ -51,11 +51,11 @@ int UN(homogeneousplayer)(int a[9], int bd, int x, int y)
 {
 #define R(x) return x;
 #define B(x) a[x]==BALL
-#define D(x,i) ("0123:5678,1256:8785,3010:2367"[x+i*10]-48)
+#define D(x,i) ("0223:5688,1256:8785,3010:2367"[x+i*10]-48)
 #define F(x) if(a[x]<BALL)R(x)
 if(B(E)&&(a[NE]==6||a[SE]==6)) R(bd);
 if(B(bd)) R("9259-8985"[bd]-48)
-F(D(bd,0))F(D(bd,1))F(D(bd,2))
+F(D(bd,0))F(D(bd,1))R(D(bd,2))
 }
 
 /*-----------------------------------------------------
