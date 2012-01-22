@@ -51,29 +51,11 @@ int UN(homogeneousplayer)(int a[9], int bd, int x, int y)
 {
 #define R(x) return x;
 #define B(x) a[x]==BALL
-#define D(x) ("1256-8785;3010-2367"[x]-48)//+10
+#define D(x,i) ("0123:5678,1256:8785,3010:2367"[x+i*10]-48)
 #define F(x) if(a[x]<BALL)R(x)
-if( B(E) && (a[NE]==6||a[SE]==6) ) return(bd);
-/*
- * If right next to the ball, on the west, get to east side.
- */
-if (B(N)) R(NE);
-if (B(NE)) R(E);
-if (B(E)) R(SE);
-if (B(SE)) R(E);
-if (B(S)) R(SE);
-
-/*
- * If already on the west, kick!
- */
-if (B(SW)) R(KICK);
-if (B(W)) R(KICK);
-if (B(NW)) R(KICK);
-
-/*
- * If not near the ball, just go to it.
- */
-F(bd)F(D(bd))F(D(bd+10)) 
+if(B(E)&&(a[NE]==6||a[SE]==6)) R(bd);
+if(B(bd)) R("9259-8985"[bd]-48)
+F(D(bd,0))F(D(bd,1))F(D(bd,2))
 }
 
 /*-----------------------------------------------------

@@ -1,11 +1,34 @@
-	#define NW	0		 N1  W3   N1
-	#define N	1		NE2 NW0  NE2
-	#define NE	2		 N1  E5   E5
-	#define W	3		NW0 SW6   --
-	#define PLAYER	4	
-	#define E	5		NE2 SE8   --
-	#define SW	6		 S7  W3   S7
-	#define S	7		SE8 SW6  SE8
-	#define SE	8		 S7  E5   E5
-Best alternative: "1256-8785"
-Next alternative: "3010-2367"
+When the ball is on screen, what do you do?
+/* If right next to the ball, on the west, get to east side. */
+/* If already on the west, kick! */
+Ball-D     Ret
+NW	0       K9  
+N	1      NE2 
+NE	2       E5   
+W	3       K9  
+PLR	4     nop:   
+E	5      SE8  
+SW	6       K9  
+S	7      SE8   
+SE	8       E5  
+Built string: "9259:8985"
+
+Which direction should we move to get to an offscreen ball, and alternatives
+if that choice is blocked. If all choices are blocked, do nothing. You're screwed.
+	Ball-D     Ret  Alt1 Alt2
+	NW	0		NW    N1   W3
+	N	1		 N   NE2  NW0
+	NE	2		NE    E5   N1
+	W	3		 W   SW6  NW0
+	PLR	4	   nop   nop  nop
+	E	5		 E   SE8  NE2
+	SW	6		SW    S7   W3
+	S	7		 S   SE8  SW6
+	SE	8		SE    E5   S7
+First choice: "0123:5678"
+Alternate 1:  "1256:8785"
+Alternate 2:  "3010:2367"
+Built string: "0123:5678,1256:8785,3010:2367"
+
+
+
