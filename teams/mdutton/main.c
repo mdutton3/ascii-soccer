@@ -46,16 +46,50 @@ move (N, NE, E, S, etc) or KICK to kick the ball.
 	the east side of it, or if already on the
 	east, kick it.
 
+	When the ball is on screen, what do you do?
+	- If right next to the ball, on the west, get to east side.
+	- If already on the west, kick!
+	Ball-D     Ret
+	NW	0       K9   
+	N	1      NE2  
+	NE	2       E5   
+	W	3       K9  
+	PLR	4     nop:   
+	E	5      SE8  
+	SW	6       K9  
+	S	7      SE8   
+	SE	8       E5  
+	Built string: "9259:8985"
+
+	Which direction should we move to get to an offscreen ball
+	- and alternatives if that choice is blocked.
+	- If all choices are blocked, do nothing. You're screwed.
+		Ball-D      Ret  Alt1 Alt2
+		NW	0		NW0    N1   W3
+		N	1		NE2   NE2  NW0
+		NE	2		NE2    E5   N1
+		W	3		 W3   SW6  NW0
+		PLR	4	    nop   nop  nop
+		E	5		 E5   SE8  NE2
+		SW	6		SW6    S7   W3
+		S	7		SE8   SE8  SW6
+		SE	8		SE8    E5   S7
+	Example choice: "0123:5678"
+	First choice:   "0223:5688"
+	Alternate 1:  "1256:8785"
+	Alternate 2:  "3010:2367"
+	Built string: "0123:5678,1256:8785,3010:2367"
+
 -----------------------------------------------------*/
 int UN(homogeneousplayer)(int a[9], int bd, int x, int y)
 {
-#define R(x) return x;
-#define B(x) a[x]==BALL
-#define D(x,i) ("0223:5688,1256:8785,3010:2367"[x+i*10]-48)
-#define F(x) if(a[x]<BALL)R(x)
-if(B(E)&&(a[NE]==6||a[SE]==6)) R(bd);
-if(B(bd)) R("9259-8985"[bd]-48)
-F(D(bd,0))F(D(bd,1))R(D(bd,2))
+	#define R(x) return x;
+	#define B(x) a[x]==BALL
+	#define D(x,i) ("0223:5688,1256:8785,3010:2367"[x+i*10]-48)
+	#define F(x) if(a[x]<BALL)R(x)
+	if(B(E)&&(a[NE]==6||a[SE]==6)) R(bd);
+	if(B(bd)) R("9259-8985"[bd]-48)
+	F(D(bd,0))F(D(bd,1))R(D(bd,2))
 }
 
 /*-----------------------------------------------------
