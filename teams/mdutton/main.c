@@ -42,24 +42,27 @@ move (N, NE, E, S, etc) or KICK to kick the ball.
 
 	homogeneousplayer()
 
-	If the ball is nearby, either get to
-	the east side of it, or if already on the
-	east, kick it.
-
+	HACK: I encode my lookup tables as strings to conserve
+	characters. I index into the array depending using a grid
+	position (0-8) and subtract '0' to convert the result into
+	a command (move, kick, noop).
+		Example choice: "0123:5678"
+	
 	When the ball is on screen, what do you do?
-	- If right next to the ball, on the west, get to east side.
+	- If right next to the ball, on the west, obstruct.
+	- Otherwise, go west, avoiding obstacles
 	- If already on the west, kick!
-	Ball-D     Ret
-	NW	0       K9   
-	N	1      NE2  
-	NE	2       E5   
-	W	3       K9  
-	PLR	4     nop:   
-	E	5      SE8  
-	SW	6       K9  
-	S	7      SE8   
-	SE	8       E5  
-	Built string: "9259:8985"
+	Ball-D     Ret  Alt1
+	NW	0       K9    K9
+	N	1      NE2    E5
+	NE	2       E5    N1
+	W	3       K9    K9
+	PLR	4     nop:  nop:
+	E	5     nop:  nop:     #SE8
+	SW	6       K9    K9
+	S	7      SE8    E5
+	SE	8       E5    S7
+	Built string: "9259::985,9519::957"
 
 	Which direction should we move to get to an offscreen ball
 	- and alternatives if that choice is blocked.
@@ -74,18 +77,25 @@ move (N, NE, E, S, etc) or KICK to kick the ball.
 		SW	6		SW6    S7   W3
 		S	7		SE8   SE8  SW6
 		SE	8		SE8    E5   S7
-	Example choice: "0123:5678"
 	First choice:   "0223:5688"
 	Alternate 1:  "1256:8785"
 	Alternate 2:  "3010:2367"
 	Built string: "0123:5678,1256:8785,3010:2367"
 
+	MACROS:
+	D(i) - lookup the action for when the ball is Close.
+			b = the position of the ball on the grid
+			i = which lookup table to use
+				0,1 = first/second LUT for when the ball is near
+				2,3,4 = first/second/third LUT for when the ball is far
+	F(x) - return x if x is free (==open or goal), otherwise keep evaluating...
 -----------------------------------------------------*/
-int UN(homogeneousplayer)(int a[9], int bd, int x, int y)
+int UN(homogeneousplayer)(int a[9], int b, int x, int y)
 {
-	#define D(x,i) ("0223:5688,1256:8785,3010:2367"[x+i*10]-48)
-	#define F(x) (a[x]<BALL)?(x):
-	return (a[E]==BALL&&(a[NE]==6||a[SE]==6))?bd:(a[bd]==BALL)?("9259-8985"[bd]-48):F(D(bd,0))F(D(bd,1))D(bd,2);
+#define D(i) ("9259::9859519::9570223:56881256:87853010:2367"[b+i*9]-48)
+#define F(x) (a[x]<2)?(x):
+int r=a[4]==6?7:6;
+return (a[E]==2&&(a[NE]==r||a[SE]==r))?b:(a[b]==2)?(D(0)==9?9:F(D(0))D(1)):F(D(2))F(D(3))D(4);
 }
 
 /*-----------------------------------------------------
