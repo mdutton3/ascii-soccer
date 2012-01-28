@@ -1,0 +1,28 @@
+ASCII=Soccer=v2.0====(q)uit====(s)lower====(f)aster=============================
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|      >>                                                                      |
+|      <<>                                                                     |
+|    < <                                                                       |
+|      >                                                                       |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+O                                                                              |
+================================================================================
+Krazy Kickers        1                              Matthew Dutton       20
+
+Krazy Kickers        vs Matthew Dutton      : 1 to 20 
+Matthew Dutton       won
+

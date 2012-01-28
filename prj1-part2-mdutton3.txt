@@ -1,0 +1,36 @@
+Matthew Dutton, mdutton3, 901-779-835
+CS7631-Project1-Part2
+
+My team uses less than 215 characters.  :^)
+It was less than 200 characters but there is a bug in soccer that does not always set
+a[PLAYER] and the player IDs on the map are not switched. I can't tell my team from the
+other when this happens. This caused me to block when my own players were near sometimes.
+
+My team is a modified version of the example team and was designed to play against the
+example team. It exploits example team's weaknesses. In particular, the example team does
+not check if a tile is occupied before attempting to move to it.
+
+To beat the example team, obstructs example team and avoids wasting turns on collisions.
+My team checks if the destination is occupied before moving and chooses a different move
+if it is occupied. When example team is trying to get behind the ball, it tries to get
+directly behind the ball if it is not already in one of the three squares behind the ball.
+To obstruct this, if one of my bots finds itself directly in *front* of the ball, it will
+not move. This causes the example team to waste turns not moving or kicking.
+
+Also, my team tries to diagonally whenever possible, even whenever the ball-direction
+is N, S, E, or W off-screen. This is to maximize movement towards the ball. My team
+prefers the diagonal direction that is most likely to put it behind the ball instead of
+at the ball.
+
+My team beats example ~100/6 and also beats most other teams. It doesn't beat 'spaniels'
+or 'rollers', which both use x-y position. The rollers team actually uses the x-y position
+to make the players act heterogenous, but still only wins ~2/1. :^)
+
+My teams biggest strength is blocking the front of the ball when another team is nearby.
+Without this tactic, I score much worse (but still beat example).
+
+One of my team's weaknesses is not kicking the ball when it isn't behind the ball but the
+opponent is. I could have put in logic for that but I already beat example and I liked
+my low character count.  :^)
+
+
