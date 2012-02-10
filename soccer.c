@@ -322,7 +322,7 @@ if (display) wrefresh(game_win);
 /*
  * Sleep to let user see what's up
  */
-sleep(2);
+if(display) sleep(2);
 
 /*
  * Call user initialization routines.
@@ -345,7 +345,7 @@ while (game_over != 1)
 	overall_count = 0;
 	kick_direction = -1;
 	kick_steps = 0;
-	sleep(1);
+	if(display) sleep(1);
 
 	/*
 	 * Call user initialization functions.
