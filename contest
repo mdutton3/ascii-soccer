@@ -45,4 +45,4 @@ else
 	make soccerboth
 endif
 echo "contest: starting a game."
-./soccer -p 7
+./soccer -d -p 1000
