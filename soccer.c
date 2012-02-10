@@ -648,12 +648,12 @@ while (game_over != 1)
 			{
 			east_score++;
 			point_over = 1;
-			if (!display) 
-				{
-				printf("%s vs %s: %d to %d \n",WESTteam_name(),EASTteam_name(),
-				west_score,east_score);
-				fflush(stdout);
-				}
+			//if (!display) 
+			//	{
+			//	printf("%s vs %s: %d to %d \n",WESTteam_name(),EASTteam_name(),
+			//	west_score,east_score);
+			//	fflush(stdout);
+			//	}
 			EASTwon_point(); /* Advise the teams of the point */
 			WESTlost_point();
 			}
@@ -661,12 +661,12 @@ while (game_over != 1)
 			{
 			west_score++;
 			point_over = 1;
-			if (!display) 
-				{
-				printf("%s vs %s: %d to %d \n",WESTteam_name(),EASTteam_name(),
-				west_score,east_score);
-				fflush(stdout);
-				}
+			//if (!display) 
+			//	{
+			//	printf("%s vs %s: %d to %d \n",WESTteam_name(),EASTteam_name(),
+			//	west_score,east_score);
+			//	fflush(stdout);
+			//	}
 			WESTwon_point(); /* Advise the teams of the point */
 			EASTlost_point();
 			}
