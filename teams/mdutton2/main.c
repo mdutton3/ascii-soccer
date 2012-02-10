@@ -40,7 +40,7 @@ move (N, NE, E, S, etc) or KICK to kick the ball.
 
 /*-----------------------------------------------------
 
-	homogeneousplayer()
+	Heterogenous team strategy()
 
 	HACK: I encode my lookup tables as strings to conserve
 	characters. I index into the array depending using a grid
@@ -90,49 +90,46 @@ move (N, NE, E, S, etc) or KICK to kick the ball.
 				2,3,4 = first/second/third LUT for when the ball is far
 	F(x) - return x if x is free (==open or goal), otherwise keep evaluating...
 -----------------------------------------------------*/
-int UN(playerA)(int a[9], int b, int x, int y)
-{
-#define D(i) ("9259::9859519::9570223:56881256:87853010:2367"[b+i*9]-48)
+#define D(i) (t[b+i*10]-48)
 #define F(x) (a[x]<2)?(x):
-return (a[E]==2&&(a[NE]==OPPONENT||a[SE]==OPPONENT))?b:(a[b]==2)?(D(0)==9?9:F(D(0))D(1)):F(D(2))F(D(3))D(4);
+#define DO(x) char*t=x; return (a[E]==2&&(a[NE]==OPPONENT||a[SE]==OPPONENT))?b:(a[b]==2)?(D(0)==9?9:F(D(0))D(1)):F(D(2))F(D(3))D(4);
+
+int UN(playerA)(int a[9], int b)
+{
+DO("9259::985,9519::957,0223:5688,1256:8785,3010:2367")
 }
 
-int UN(playerB)(int a[9], int b, int x, int y)
+int UN(playerB)(int a[9], int b)
 {
-#define D(i) ("9259::9859519::9570223:56881256:87853010:2367"[b+i*9]-48)
-#define F(x) (a[x]<2)?(x):
-return (a[E]==2&&(a[NE]==OPPONENT||a[SE]==OPPONENT))?b:(a[b]==2)?(D(0)==9?9:F(D(0))D(1)):F(D(2))F(D(3))D(4);
+DO("9259:8985,9519:2957,0223:5688,3010:2367,1256:8785")
 }
 
-int UN(playerC)(int a[9], int b, int x, int y)
+int UN(playerC)(int a[9], int b)
 {
-#define D(i) ("9259::9859519::9570223:56881256:87853010:2367"[b+i*9]-48)
-#define F(x) (a[x]<2)?(x):
-return (a[E]==2&&(a[NE]==OPPONENT||a[SE]==OPPONENT))?b:(a[b]==2)?(D(0)==9?9:F(D(0))D(1)):F(D(2))F(D(3))D(4);
+DO("9259::985,9519::957,0223:5688,1256:8785,3010:2367")
 }
 
-int UN(playerD)(int a[9], int b, int x, int y)
+int UN(playerD)(int a[9], int b)
 {
-#define D(i) ("9259::9859519::9570223:56881256:87853010:2367"[b+i*9]-48)
-#define F(x) (a[x]<2)?(x):
-return (a[E]==2&&(a[NE]==OPPONENT||a[SE]==OPPONENT))?b:(a[b]==2)?(D(0)==9?9:F(D(0))D(1)):F(D(2))F(D(3))D(4);
+DO("9259:8985,9519:2957,0223:5688,3010:2367,1256:8785")
 }
 
 #define ASSIGN_TEAM(p1,p2,p3,p4) \
-    int UN(player1)(int a[9], int b, int x, int y) { return UN(player##p1)(a,b,x,y); } \
-    int UN(player2)(int a[9], int b, int x, int y) { return UN(player##p2)(a,b,x,y); } \
-    int UN(player3)(int a[9], int b, int x, int y) { return UN(player##p3)(a,b,x,y); } \
-    int UN(player4)(int a[9], int b, int x, int y) { return UN(player##p4)(a,b,x,y); } \
+    int UN(player1)(int a[9], int b, int x, int y) { return UN(player##p1)(a,b); } \
+    int UN(player2)(int a[9], int b, int x, int y) { return UN(player##p2)(a,b); } \
+    int UN(player3)(int a[9], int b, int x, int y) { return UN(player##p3)(a,b); } \
+    int UN(player4)(int a[9], int b, int x, int y) { return UN(player##p4)(a,b); } \
     static char const * dutton_team = "Matt Dutton-pj2-" #p1#p2#p3#p4 "\0"; \
 /* END MACRO */
 
 
 // Uncomment one of the team assignments below to configure the team
-//ASSIGN_TEAM(A,A,A,A)
+ASSIGN_TEAM(A,A,A,A)
 //ASSIGN_TEAM(A,A,A,B)
 //ASSIGN_TEAM(A,A,B,B)
+//ASSIGN_TEAM(A,B,B,A)
 //ASSIGN_TEAM(A,A,B,C)
-ASSIGN_TEAM(A,B,C,D)
+//ASSIGN_TEAM(A,B,C,D)
 
 /*-----------------------------------------------------
 
