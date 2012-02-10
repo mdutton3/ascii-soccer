@@ -2,7 +2,7 @@ soccer.o: soccer.c soccer.h players.h
 	gcc -w -c soccer.c
 
 soccer: soccer.o 
-	gcc -w soccer.o -o soccer -L./ -lcurses -ltermcap -lm \
+	gcc -w soccer.o -o soccer -L./ -lcurses -lm \
 		-least -leastcommon -lwest -lwestcommon
 
 soccerboth: soccer.o 
