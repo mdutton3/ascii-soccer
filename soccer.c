@@ -46,7 +46,11 @@
 *****************************************************************/
 
 #include <stdlib.h>
+#ifdef __CYGWIN__
+#include <ncurses/curses.h>
+#else
 #include <curses.h>
+#endif
 #include <math.h>
 #include <sys/types.h>
 #include <sys/time.h>
