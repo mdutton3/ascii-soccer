@@ -1,0 +1,9 @@
+Cells = my-score / homo-score
+
+        WEST        EAST
+AAAA  1000/833     889/1000
+AAAB  1000/732     1000/959
+AABB  1000/622     1000/756
+ABBA  1000/720     1000/718
+AABC  1000/725     1000/900
+ABCD  1000/548     1000/773
