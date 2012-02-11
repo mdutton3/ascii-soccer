@@ -124,12 +124,12 @@ DO("9259:8985,9519:2957,0223:5688,3010:2367,1256:8785")
 
 
 // Uncomment one of the team assignments below to configure the team
-ASSIGN_TEAM(A,A,A,A)
+//ASSIGN_TEAM(A,A,A,A)
 //ASSIGN_TEAM(A,A,A,B)
 //ASSIGN_TEAM(A,A,B,B)
 //ASSIGN_TEAM(A,B,B,A)
 //ASSIGN_TEAM(A,A,B,C)
-//ASSIGN_TEAM(A,B,C,D)
+ASSIGN_TEAM(A,B,C,D)
 
 /*-----------------------------------------------------
 
