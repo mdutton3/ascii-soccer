@@ -101,11 +101,13 @@ if (display) wrefresh(game_win);
 ******************************************************************/
 int replace_ball()
 {
+ball_x = MAX_X/2;
+ball_y = MAX_Y/2;
 if (display) mvaddch(ball_y, ball_x, ' ');
 do
 	{
 	field[ball_x][ball_y] = EMPTY;
-	ball_y = rand() % 20 + 1;
+	ball_y = (rand() % (MAX_Y-2)) + 1;
 	}
 while (field[ball_x][ball_y] != EMPTY);
 field[ball_x][ball_y] = BALL;
@@ -130,7 +132,7 @@ do
 	{
 	temp = ball_y + ((rand()/256) % i) - (i/2) ;
 	if (temp<1) temp = 1;
-	if (temp>22) temp = 22;
+	if (temp>=MAX_Y) temp = MAX_Y-1;
 	i++;
 	if (i > 40) i = 40;
 	}
@@ -194,19 +196,17 @@ for(i=0; i<MAX_X; i++)
 	}
 
 /*--- Location of ball ---*/
-ball_x = 38;
-ball_y = 30;
 replace_ball();
 
 /*--- Locations of players ---*/
 for(i = 0; i <=6; i+=2)
 	{
-	player_x[i] = 46;
+	player_x[i] = ball_x + STARTING_OFFSET;
 	player_y[i] = (i/2+1)*6 - 4;
 	field[player_x[i]][player_y[i]] = EAST_PLAYER;
 	if (display) mvaddch(player_y[i], player_x[i], '<');
 
-	player_x[i+1] = 30;
+	player_x[i+1] = ball_x - STARTING_OFFSET;
 	player_y[i+1] = (i/2+1)*6 - 4;
 	field[player_x[i+1]][player_y[i+1]] = WEST_PLAYER;
 	if (display) mvaddch(player_y[i+1], player_x[i+1], '>');
@@ -737,8 +737,6 @@ while (game_over != 1)
 			/* erase old spot */
 			if (display) mvaddch(ball_x, ball_y, ' '); 
 			field[ball_x][ball_y] = EMPTY;
-			ball_x = 38;
-			ball_y = 30;
 			replace_ball();
 			overall_count = 0;
 			EASTlost_point(); /* punish teams */

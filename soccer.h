@@ -1,12 +1,12 @@
 #ifndef SOCCER_H
 	#define SOCCER_H
 
-	#define MAX_X	80
+	#define MAX_X	79
 	#define MAX_Y	23
 	#define TIME_LIMIT	20
 	#define TIME_OUT	3000
 	#define KICK_DIST	10
-	
+	#define STARTING_OFFSET	7
 	#ifndef PI
 	#define PI	3.1415927
 	#endif
